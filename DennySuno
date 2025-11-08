@@ -1,0 +1,13 @@
+def gerar_musica():
+    prompt_musical = (
+        "Crie uma música curta de 30 segundos, estilo pop eletrônico dançante, "
+        "com introdução energética de 10 segundos, seguida por espaço para fala humana, "
+        "e finalização intensa e otimista, estilo programa de rádio matinal."
+    )
+    headers = {
+        "Authorization": f"Bearer {SUNO_API_KEY}",
+        "Content-Type": "application/json"
+    }
+    data = {"prompt": prompt_musical, "duration": 30}
+    response = requests.post("https://api.suno.ai/generate", json=data, headers=headers)
+    music_data = response.json()
